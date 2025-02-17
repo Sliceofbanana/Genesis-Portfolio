@@ -137,7 +137,7 @@ nav ul li a:hover::after{
 }
 
 .header-text span::before{
-    content: "Computer Engineering Student";
+    content: "Website Developer";
     color: #4870ff;
     animation: words 20s infinite;
 }
