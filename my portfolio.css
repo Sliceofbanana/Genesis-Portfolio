@@ -172,7 +172,7 @@ nav ul li a:hover::after{
 
 @keyframes words {
     0%, 20%{
-        content: "Computer Engineering Student";
+        content: "Computer Engineering Graduate";
     }
     21%, 40%{
         content: "UI/UX Designer";
