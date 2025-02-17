@@ -228,18 +228,6 @@ nav ul li a:hover::after{
     transform: matrix(0, 1, 1, 0, 0, 0);
 }
 
-.cnt-left p{
-    margin-top: 30px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 15px;
-}
-
-.cnt-left p i{
-    color: #4870ff;
-    margin-right: 15px;
-    font-size: 25px;
-
-}
 
 
 /* ABOUT */
