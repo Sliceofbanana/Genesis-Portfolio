@@ -350,6 +350,24 @@ nav ul li a:hover::after{
     letter-spacing: 1px;
 }
 
+.workinfo{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #4870ff;
+}
+
+.workinfo div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.workinfo div span{
+    letter-spacing: 1px;
+}
+
 @media(max-width: 1068px){
     .about_container .about_contents{
         grid-template-areas: 'imageSect skillSect'
