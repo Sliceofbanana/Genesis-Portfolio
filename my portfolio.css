@@ -103,6 +103,80 @@ nav ul li a:hover::after{
     width: 100%;
 }
 
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    color: white;
+}
+
+/* Desktop Navigation */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.burger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Side Panel (Hidden by Default) */
+.side-panel {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: #222;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.side-panel ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 50px;
+}
+
+.side-panel li {
+    margin: 15px 0;
+}
+
+.side-panel a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Close Button */
+.close-btn {
+    font-size: 25px;
+    cursor: pointer;
+    align-self: flex-end;
+    color: white;
+}
+
+/* Show Side Panel */
+.side-panel.active {
+    right: 0;
+}
+
 .header h1{
     margin: 0;
     padding: 0;
@@ -551,7 +625,7 @@ nav ul li a:hover::after{
 }
 
 /* RESPONSIVENESS */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     .container {
         padding: 10px 5%;
     }
@@ -600,9 +674,15 @@ nav ul li a:hover::after{
     .carousel-track img {
         width: 80px;
     }
-}
+    .nav-links {
+        display: none; /* Hide Desktop Nav */
+    }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .burger {
+        display: block; /* Show Burger Icon */
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
     .container {
         padding: 10px 7%;
     }
@@ -636,8 +716,15 @@ nav ul li a:hover::after{
     .carousel-track img {
         width: 90px;
     }
-}
 
+    .nav-links {
+        display: none; /* Hide Desktop Nav */
+    }
+
+    .burger {
+        display: block; /* Show Burger Icon */
+    }
+}
 @media screen and (min-width: 1025px) and (max-width: 1400px) {
     .container {
         padding: 10px 8%;
@@ -659,7 +746,6 @@ nav ul li a:hover::after{
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
-
 @media screen and (min-width: 1401px) {
     .container {
         padding: 10px 10%;

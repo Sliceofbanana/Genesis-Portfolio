@@ -21,14 +21,31 @@
                     <div class="nav-con">
                         <nav class="navbar">
                             <img src="default1-67b3ff2f3ead2.webp" class="logo" alt="logo">
-                            <ul>
-                                <li><a href="#header">Home</a></li>
-                                <li><a href="#about">About Me</a></li>
-                                <li><a href="#certifications">Certification</a></li>
-                                <li><a href="#portfolio">Portfolio</a></li>
+                            
+                            <!-- Desktop Navigation -->
+                            <ul class="nav-links">
+                                <li><a href="#header"><strong>HOME</strong></a></li>
+                                <li><a href="#about"><strong>ABOUT ME</strong></a></li>
+                                <li><a href="#certifications"><strong>CERTIFICATIONS</strong></a></li>
+                                <li><a href="#portfolio"><strong>PORTFOLIO</strong></a></li>
                             </ul>
+                    
+                            <!-- Burger Icon (Hidden on Desktop) -->
+                            <div class="burger" onclick="toggleMenu()">☰</div>
                         </nav>
                     </div>
+                    
+                    <!-- Sidebar Panel (Hidden by Default) -->
+                    <div class="side-panel" id="sidePanel">
+                        <div class="close-btn" onclick="toggleMenu()">×</div>
+                        <ul>
+                            <li><a href="#header"><strong>HOME</strong></a></li>
+                            <li><a href="#about"><strong>ABOUT ME</strong></a></li>
+                            <li><a href="#certifications"><strong>CERTIFICATIONS</strong></a></li>
+                            <li><a href="#portfolio"><strong>PORTFOLIO</strong></a></li>
+                        </ul>
+                    </div>
+                    
                     <div class="header-text">
                         <div class="social">
                             <a href="https://www.instagram.com/heeeeenesis_/" target="_blank" class="fa-brands fa-instagram"></a>
@@ -200,6 +217,11 @@
             }
         }
         window.addEventListener('scroll', stickynavbar);
+
+        function toggleMenu() {
+            let panel = document.getElementById("sidePanel");
+            panel.classList.toggle("active");
+        }
     </script>
 
 </html>
