@@ -172,20 +172,14 @@ nav ul li a:hover::after{
 }
 
 @keyframes words {
-    0%, 20%{
+    0%, 33%{
         content: "Website Developer";
     }
-    21%, 40%{
+    34%, 66%{
         content: "UI/UX Designer";
     }
-    41%, 60%{
-        content: "Computer Engineer";
-    }
-    61%, 80%{
+    67%, 100%{
         content: "Graphics Designer";
-    }
-    81%, 100%{
-        content: "Mobile Photographer";
     }
 }
 
