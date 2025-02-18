@@ -128,81 +128,62 @@
         </div>
     </div>
 
-<!-- Certifications -->
-<div id="certifications">
-    <div class="container">
-        <div class="sub">
-            <h2>Certifications</h2>
-        </div>
-        <div class="cert-list">
-            <div class="cert">
-                <img src="cert 1.webp" alt="Creative Web Design Training">
-                <p>Creative Web Design Training</p>
+    <!-- Certifications -->
+    <div id="certifications">
+        <div class="container">
+            <div class="sub">
+                <h2>Certifications</h2>
             </div>
-            <div class="cert">
-                <img src="cert 2.webp" alt="Training Certificate for Internet of Things (IoT)">
-                <p>Training Certificate for Internet of Things (IoT)</p>
+            <div class="cert-list">
+                <div class="cert">
+                    <img src="cert 1.webp" alt="Creative Web Design Training">
+                    <p>Creative Web Design Training</p>
+                </div>
+                <div class="cert">
+                    <img src="cert 2.webp" alt="Training Certificate for Internet of Things (IoT)">
+                    <p>Training Certificate for Internet of Things (IoT)</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
   
-<!-- Portfolio -->   
+    <!-- Portfolio -->   
     <div id="portfolio">
         <div class="container">
             <div class="sub">
                 <h2>Portfolio</h2>
             </div>
+
+            <!-- Toggle Buttons -->
+            <div class="portfolio-toggle">
+                <button onclick="showCategory('graphics')" class="toggle-btn active" id="graphics-btn">Graphics Design</button>
+                <button onclick="showCategory('web')" class="toggle-btn" id="web-btn">Web Design</button>
+            </div>
+
             <section class="port-sec">
-                <div class="worklist">
-                    <div class="work">
-                        <img src="2.png">
-                    </div>
-                    <div class="work">
-                        <img src="6.png">
-                    </div>
-                    <div class="work">
-                        <img src="profile.png">
-                    </div>
-                    <div class="work">
-                        <img src="xmas.png">
-                    </div>
-                    <div class="work">
-                        <img src="5.png">
-                    </div>
-                    <div class="work">
-                        <img src="waiian.png">
-                    </div>
-                    <div class="work">
-                        <img src="ig.jpg">
-                    </div>
-                    <div class="work">
-                        <img src="ICpEP-HD-Flat.png">
-                    </div>
-                    <div class="work">
-                        <img src="faceless.jpeg">
-                    </div>
-                    <div class="work">
-                        <img src="never complicate.png">
-                    </div>
-                    <div class="work">
-                        <img src="NEW YEAR PFP.jpg">
-                    </div>
-                    <div class="work">
-                        <img src="FB NEW YEAR.jpg">
-                    </div>
+                <!-- Graphics Design Work -->
+                <div class="worklist" id="graphics">
+                    <div class="work"><img src="2.png"></div>
+                    <div class="work"><img src="6.png"></div>
+                    <div class="work"><img src="profile.png"></div>
+                    <div class="work"><img src="xmas.png"></div>
+                    <div class="work"><img src="5.png"></div>
+                    <div class="work"><img src="waiian.png"></div>
+                </div>
+
+                <!-- Web Design Work -->
+                <div class="worklist" id="web" style="display: none;">
+                    <div class="work"><img src="ig.jpg"></div>
+                    <div class="work"><img src="ICpEP-HD-Flat.png"></div>
+                    <div class="work"><img src="faceless.jpeg"></div>
+                    <div class="work"><img src="never complicate.png"></div>
+                    <div class="work"><img src="NEW YEAR PFP.jpg"></div>
+                    <div class="work"><img src="FB NEW YEAR.jpg"></div>
                 </div>
             </section>
-            <a href="https://drive.google.com/drive/u/2/folders/1WFcKlrMAz4hvmKe8fFJwK_NiPu6fOJIx" target="_blank"  class="btn">See more</a>
-            <div class="social">
-                <a href="https://www.instagram.com/heeeeenesis_/" target="_blank" class="fa-brands fa-instagram"></a>
-                <a href="https://www.reddit.com/user/SadBanana041202" target="_blank" class="fa-brands fa-reddit"></a>
-                <a href="https://www.linkedin.com/in/genesis-esdrilon-jr-198ba31a0/" target="_blank" class="fa-brands fa-linkedin"></a>
-                <a href="https://github.com/Sliceofbanana" target="_blank" class="fa-brands fa-github"></a>
-                <a href="https://www.facebook.com/sngdnn/" target="_blank" class="fa-brands fa-facebook"></a>
-            </div>
         </div>
     </div>
+
     <footer>
         <p>2023 SNGDNN ©. All Rights Reserved.</p>
     </footer>
@@ -221,6 +202,30 @@
         function toggleMenu() {
             let panel = document.getElementById("sidePanel");
             panel.classList.toggle("active");
+        }
+
+        function showCategory(category) {
+            const graphicsSection = document.getElementById("graphics");
+            const webSection = document.getElementById("web");
+            const graphicsBtn = document.getElementById("graphics-btn");
+            const webBtn = document.getElementById("web-btn");
+
+            // Hide all sections first
+            graphicsSection.style.display = "none";
+            webSection.style.display = "none";
+
+            // Remove active class from both buttons
+            graphicsBtn.classList.remove("active");
+            webBtn.classList.remove("active");
+
+            // Show the selected section and add active class to the button
+            if (category === "graphics") {
+                graphicsSection.style.display = "grid";
+                graphicsBtn.classList.add("active");
+            } else {
+                webSection.style.display = "grid";
+                webBtn.classList.add("active");
+            }
         }
     </script>
 
