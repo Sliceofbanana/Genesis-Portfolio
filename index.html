@@ -45,7 +45,6 @@
                             <li><a href="#portfolio"><strong>PORTFOLIO</strong></a></li>
                         </ul>
                     </div>
-                    
                     <div class="header-text">
                         <div class="social">
                             <a href="https://www.instagram.com/heeeeenesis_/" target="_blank" class="fa-brands fa-instagram"></a>
@@ -156,8 +155,8 @@
 
             <!-- Toggle Buttons -->
             <div class="portfolio-toggle">
-                <button onclick="showCategory('graphics')" class="toggle-btn active" id="graphics-btn">Graphics Design</button>
-                <button onclick="showCategory('web')" class="toggle-btn" id="web-btn">Web Design</button>
+                <button id="graphics-btn" class="toggle-btn active">Graphics Design</button>
+                <button id="web-btn" class="toggle-btn">Web Design</button>
             </div>
 
             <section class="port-sec">
@@ -188,7 +187,7 @@
         <p>2023 SNGDNN ©. All Rights Reserved.</p>
     </footer>
     <script>
-        const navbar = document.querySelector('nav-con');
+        const navbar = document.querySelector('.nav-links');
         let top = navbar.offsetTop;
         function stickynavbar() {
             if (window.scrollY >= top) {    
@@ -199,34 +198,40 @@
         }
         window.addEventListener('scroll', stickynavbar);
 
-        function toggleMenu() {
-            let panel = document.getElementById("sidePanel");
-            panel.classList.toggle("active");
-        }
-
-        function showCategory(category) {
+        document.addEventListener("DOMContentLoaded", function () {
             const graphicsSection = document.getElementById("graphics");
             const webSection = document.getElementById("web");
             const graphicsBtn = document.getElementById("graphics-btn");
             const webBtn = document.getElementById("web-btn");
 
-            // Hide all sections first
-            graphicsSection.style.display = "none";
-            webSection.style.display = "none";
-
-            // Remove active class from both buttons
-            graphicsBtn.classList.remove("active");
-            webBtn.classList.remove("active");
-
-            // Show the selected section and add active class to the button
-            if (category === "graphics") {
-                graphicsSection.style.display = "grid";
-                graphicsBtn.classList.add("active");
-            } else {
-                webSection.style.display = "grid";
-                webBtn.classList.add("active");
+            if (!graphicsSection || !webSection || !graphicsBtn || !webBtn) {
+                console.error("One or more elements are missing.");
+                return;
             }
-        }
+
+            function showCategory(category) {
+                graphicsSection.style.display = "none";
+                webSection.style.display = "none";
+
+                graphicsBtn.classList.remove("active");
+                webBtn.classList.remove("active");
+
+                if (category === "graphics") {
+                    graphicsSection.style.display = "grid";
+                    graphicsBtn.classList.add("active");
+                } else {
+                    webSection.style.display = "grid";
+                    webBtn.classList.add("active");
+                }
+            }
+
+            // Ensure the buttons trigger the function
+            graphicsBtn.addEventListener("click", () => showCategory("graphics"));
+            webBtn.addEventListener("click", () => showCategory("web"));
+
+            // Set default active section
+            showCategory("graphics");
+        });
     </script>
 
 </html>
