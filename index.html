@@ -11,7 +11,6 @@
         <script src="https://kit.fontawesome.com/086e4f5b6f.js" crossorigin="anonymous"></script>
     </head>
     
-
     <body>
         <video autoplay muted playsinline loop>
             <source src="bg111.mp4" type="video/mp4">
@@ -21,29 +20,13 @@
                     <div class="nav-con">
                         <nav class="navbar">
                             <img src="default1-67b3ff2f3ead2.webp" class="logo" alt="logo">
-                            
-                            <!-- Desktop Navigation -->
                             <ul class="nav-links">
                                 <li><a href="#header"><strong>HOME</strong></a></li>
                                 <li><a href="#about"><strong>ABOUT ME</strong></a></li>
                                 <li><a href="#certifications"><strong>CERTIFICATIONS</strong></a></li>
                                 <li><a href="#portfolio"><strong>PORTFOLIO</strong></a></li>
                             </ul>
-                    
-                            <!-- Burger Icon (Hidden on Desktop) -->
-                            <div class="burger" onclick="toggleMenu()">☰</div>
                         </nav>
-                    </div>
-                    
-                    <!-- Sidebar Panel (Hidden by Default) -->
-                    <div class="side-panel" id="sidePanel">
-                        <div class="close-btn" onclick="toggleMenu()">×</div>
-                        <ul>
-                            <li><a href="#header"><strong>HOME</strong></a></li>
-                            <li><a href="#about"><strong>ABOUT ME</strong></a></li>
-                            <li><a href="#certifications"><strong>CERTIFICATIONS</strong></a></li>
-                            <li><a href="#portfolio"><strong>PORTFOLIO</strong></a></li>
-                        </ul>
                     </div>
                     <div class="header-text">
                         <div class="social">
@@ -183,15 +166,20 @@
             </div>
         </div>
 
+        <button id="backToTop" class="back-to-top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+        
+
         <footer>
             <p>2023 SNGDNN ©. All Rights Reserved.</p>
         </footer>
 
-        
         <script>
             console.log("Script loaded successfully!");
             const navbar = document.querySelector('.nav-links');
             let navbarTop = navbar.offsetTop;
+
             function stickynavbar() {
                 if (window.scrollY >= top) {    
                     navbar.classList.add('sticky');
@@ -201,43 +189,57 @@
             }
             window.addEventListener('scroll', stickynavbar);
 
-            //////////////////
-
             document.addEventListener("DOMContentLoaded", function() {
                 const graphicsBtn = document.getElementById("graphics-btn");
                 const webBtn = document.getElementById("web-btn");
                 const graphicsSection = document.getElementById("graphics");
                 const webSection = document.getElementById("web");
 
-                // If any are missing, log an error and stop.
                 if (!graphicsBtn || !webBtn || !graphicsSection || !webSection) {
                 console.error("Portfolio elements are missing.");
                 return;
                 }
 
-                // Default state: Graphics is active, Web is hidden.
                 graphicsSection.style.display = "grid";
                 webSection.style.display = "none";
 
-                // When clicking "Web Design":
                 webBtn.addEventListener("click", function() {
-                // Make Web button active, Graphics button inactive
                 webBtn.classList.add("active");
                 graphicsBtn.classList.remove("active");
-                // Show Web items, hide Graphics items
                 webSection.style.display = "grid";
                 graphicsSection.style.display = "none";
                 });
 
-                // When clicking "Graphics Design":
                 graphicsBtn.addEventListener("click", function() {
-                // Make Graphics button active, Web button inactive
                 graphicsBtn.classList.add("active");
                 webBtn.classList.remove("active");
-                // Show Graphics items, hide Web items
                 graphicsSection.style.display = "grid";
                 webSection.style.display = "none";
                 });
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const backToTopButton = document.getElementById("backToTop");
+
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 300) {
+                        backToTopButton.style.display = "flex";
+                    } else {
+                        backToTopButton.style.display = "none";
+                    }
+                });
+
+                backToTopButton.addEventListener("click", function () {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                });
+
+                setTimeout(() => {
+                    backToTopButton.style.display = "none";
+                    backToTopButton.classList.remove("disappear");
+                }, 600);
             });
         </script>
     </body>

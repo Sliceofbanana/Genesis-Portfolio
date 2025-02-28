@@ -16,6 +16,8 @@ video {
 
 html{
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body{
@@ -125,56 +127,6 @@ nav ul li a:hover::after{
     text-decoration: none;
     color: white;
     font-size: 18px;
-}
-
-.burger {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-/* Side Panel (Hidden by Default) */
-.side-panel {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 250px;
-    height: 100vh;
-    background-color: #222;
-    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
-    transition: right 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-
-.side-panel ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 50px;
-}
-
-.side-panel li {
-    margin: 15px 0;
-}
-
-.side-panel a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-/* Close Button */
-.close-btn {
-    font-size: 25px;
-    cursor: pointer;
-    align-self: flex-end;
-    color: white;
-}
-
-/* Show Side Panel */
-.side-panel.active {
-    right: 0;
 }
 
 .header h1{
@@ -673,6 +625,39 @@ nav ul li a:hover::after{
     color: #fff;
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #4870ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s, background-color 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top i {
+    font-size: 24px;
+}
+
+.back-to-top:hover {
+    background-color: #3657cc;
+}
+
+.back-to-top.disappear {
+    opacity: 0;
+    transform: scale(0.3) rotate(360deg);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
 /* RESPONSIVENESS */
 @media screen and (max-width: 768px) {
     .container {
@@ -702,8 +687,9 @@ nav ul li a:hover::after{
     }
 
     .header h1 {
-        font-size: 45px;
-        text-align: center;
+        font-size: 40px;
+        text-align: left;
+        margin-left: 10px;
     }
 
     .about_container .about_contents {
@@ -748,6 +734,8 @@ nav ul li a:hover::after{
 
     .header h1 {
         font-size: 50px;
+        margin-left: 10px;
+        text-align: left;
     }
 
     .about_container .about_contents {
@@ -781,6 +769,7 @@ nav ul li a:hover::after{
 
     .header h1 {
         font-size: 55px;
+        text-align: left;
     }
 
     .header-text {
