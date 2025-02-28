@@ -592,40 +592,46 @@ nav ul li a:hover::after{
 }
 
 .toggle-btn {
-    background-color: #4870ff;
-    color: white;
+    background-color: transparent;
+    color: #fff;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
+    position: relative;  /* Needed for the ::after underline */
     transition: background 0.3s ease-in-out;
-}
-
-/* Hover effect */
-.toggle-btn:hover {
-    background-color: #3651cc;
-}
-
-/* Active button styling */
-.toggle-btn.active {
-    background-color: #010101;
-    font-weight: bold;
-    position: relative;
-}
-
-/* Underline effect */
-.toggle-btn.active::after {
+  }
+  
+  /* Underline is hidden (width: 0) by default */
+  .toggle-btn::after {
     content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    width: 100%;
+    width: 0;
     height: 3px;
-    background-color: #4870ff;
-    transform: translateX(-50%);
-    transition: width 0.3s ease-in-out;
-}
+    background: #4870ff; /* Underline color */
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    /* Same transition & timing as your nav links */
+    transition: width 0.7s;
+    animation: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+  
+  /* On hover (when not active), grow the underline to 100% */
+  .toggle-btn:hover::after {
+    width: 100%;
+  }
+  
+  /* Active state: black background, bold text */
+  .toggle-btn.active {
+    background-color: #010101; /* Black */
+    font-weight: bold;
+  }
+  
+  /* Active button always has a full underline */
+  .toggle-btn.active::after {
+    width: 100%;
+  }
 
 
 .layer h3{
